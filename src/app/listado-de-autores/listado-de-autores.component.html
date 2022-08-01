@@ -1,0 +1,32 @@
+<div class="col-8">
+<h1><i class="fa-solid fa-address-book"></i> {{titulo}}</h1>
+
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre del autor</th>
+        <th scope="col">Año de nacimiento</th>
+        <th scope="col">Numero de publicaciones</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let autor of autores"> <!--Inicio de ciclo for-->
+        <th scope="row">{{ autor.id }}</th>
+        <td>{{ autor.nombre | uppercase}}</td> <!--uppercase es un pipe que muestra los datos en mayusculas-->
+        <td>{{ autor.year}}</td>
+        <td>{{ autor.libros.length }}</td> <!--length muestra el numero de elementos que tiene un array-->
+        <td>
+            <a routerLink="/autor/{{autor.id}}" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></a>
+        </td>
+      </tr><!--Fin de tr y ciclo for-->
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><b>Total de autores mostrados:</b> </td>
+            <td colspan="4"><i class="fa-solid fa-users fa-2x"></i> {{ autores.length }}</td>
+        </tr>
+    </tfoot>
+  </table>
+</div>
